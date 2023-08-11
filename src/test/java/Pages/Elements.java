@@ -50,7 +50,7 @@ public class Elements extends Parent {
     public WebElement aksesuarLink;
     @FindBy(linkText = "Kol saati")
     public WebElement kolSaatiLink;
-    @FindBy(css = "h3[class='m-productCard__desc']")
+    @FindBy(css = "span[class='m-productCard__desc']")
     public List<WebElement> productList;
     @FindBy(css = "[class='o-productDetail__description']")
     public WebElement chosenProduct;
@@ -86,7 +86,7 @@ public class Elements extends Parent {
     public WebElement gri;
     @FindBy(id = "productFilterApplyButton")
     public WebElement applyFilter;
-    @FindBy(xpath = "//button[contains(text(),'FAVORİ')]")
+    @FindBy(css = "div[class='m-productCard__stockCartIcon']")
     public List<WebElement> addFavoriteBasketButton;
     @FindBy(id = "addFavorite")
     public WebElement addFavoriteButton;
@@ -110,6 +110,7 @@ public class Elements extends Parent {
     public WebElement cardCvv;
     @FindBy(xpath = "(//*[@class='m-checkbox'])[3]")
     public WebElement checkBox;
+
 
     public WebElement getWebElement(String element) {
         switch (element) {

@@ -58,7 +58,7 @@ public class Parent {
     public void beymenCookies() {
 
         List<WebElement> acceptAllCookiesButton = wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.id("onetrust-accept-btn-handler"), 0));
-        List<WebElement> genderOptionCloseButton = wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("button[type='button']>svg"),0));
+        List<WebElement> genderOptionCloseButton = wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("button[type='button']>svg"), 0));
 
         if (acceptAllCookiesButton.size() > 0) {
             clickFunction(acceptAllCookiesButton.get(0));
@@ -66,6 +66,16 @@ public class Parent {
 
         if (genderOptionCloseButton.size() > 0) {
             clickFunction(genderOptionCloseButton.get(0));
+        }
+    }
+
+    public void actions(WebElement element, String str) {
+        Actions action = new Actions(GWD.getDriver());
+        switch (str.toLowerCase()) {
+            case "hover":
+                action.moveToElement(element).build().perform();
+                break;
+
         }
     }
 
@@ -78,22 +88,16 @@ public class Parent {
         return new Select(element);
     }
 
+    public void waitUntilVisibleAllElements(List<WebElement> elements) {
+        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
+    }
+
+
     public void verifyContainsTextFunction(WebElement element, String value) {
         waitUntilVisible(element);
         Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()), "No Such Text()");
 
     }
 
-    public void actions(WebElement element, String str) {
-        Actions action = new Actions(GWD.getDriver());
-        switch (str.toLowerCase()) {
-            case "hover":
-                action.moveToElement(element).build().perform();
-                break;
 
-        }
-    }
-    public void waitUntilVisibleAllElements(List<WebElement> elements){
-        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
-    }
 }

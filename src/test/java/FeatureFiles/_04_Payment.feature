@@ -1,6 +1,6 @@
 Feature: Payment Functionality
 
-  @SmokeTest @Parallel
+  @SmokeTest
   Scenario: User should be able to pay for products in the basket successfully
     Given Navigate to Beymen website
     And Close the cookies

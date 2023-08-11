@@ -14,7 +14,7 @@ Feature: Login with Positive and Negative Data
       | resulhurfikir@gmail.com | 123456    |
       | email@email.com         | R.h106617 |
 
-  @SmokeTest
+  @SmokeTest @Parallel
   Scenario: User should be able to login with valid data
     When User enter valid email and password
     Then Verify that the user should be logged successfully
